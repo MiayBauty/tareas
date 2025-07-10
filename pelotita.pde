@@ -1,3 +1,4 @@
+PFont gameOverFont;
 int velx = 10;
 int vely = 10;
 int x = 50;
@@ -6,6 +7,7 @@ int score = 0;
 
 void setup() {
   size(800, 600);
+  gameOverFont = createFont("Courier New", 60);
 }
 
 void draw() {
@@ -30,7 +32,11 @@ void draw() {
     score=score+1;
     y = 500 - 26;
   }
- 
+  if(y>height -26){
+  vely*=-1;
+  text("Game Over" ,300,300);
+  textSize(50);
+  }
   x += velx;
   y += vely;
 }
